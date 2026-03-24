@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { Home, Info, Wrench, Phone, Mail, MapPin, Leaf, ShieldCheck, Tractor, Package, Users, Facebook, Instagram, Linkedin, Heart } from "lucide-react";
-import logo from "@/assets/logo.png";
 
 const Footer = () => {
   return (
@@ -80,18 +79,22 @@ const Footer = () => {
       {/* Footer bottom */}
       <div className="border-t border-muted-foreground/20 py-6">
         <div className="container-narrow mx-auto px-4 text-center space-y-2">
-          <p className="text-sm opacity-70 flex items-center justify-center gap-1">
-            Made with <Heart className="w-4 h-4 text-primary fill-primary" /> by{" "}
+          <div className="flex justify-center items-center gap-1 text-sm opacity-70">
+            Made with <Heart className="inline h-4 w-4 text-red-500 mx-1" /> by
             <a
-              href="https://staffarc.com"
+              href="https://staffarc.in"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 hover:opacity-100 transition-opacity"
+              className="flex items-center gap-1 text-orange-600 hover:underline"
             >
-              <img src={logo} alt="StaffArc" className="h-4 w-auto inline" />
-              <span className="font-semibold">StaffArc</span>
+              <img
+                src="https://www.staffarc.in/images/Staffarc-logo.png"
+                alt="StaffArc logo"
+                className="h-5 w-5 object-contain"
+              />
+              StaffArc
             </a>
-          </p>
+          </div>
           <p className="text-xs opacity-50">
             Copyright © Janicaa Agro Solutions Private Limited. All Rights Reserved.
           </p>
