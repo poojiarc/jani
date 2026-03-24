@@ -1,10 +1,16 @@
+import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
-import { Leaf, Package, Tractor, Users, TrendingUp, ShieldCheck, FlaskConical, Phone, Mail, MapPin, MessageCircle, CheckCircle } from "lucide-react";
+import { Leaf, Package, Tractor, Users, TrendingUp, ShieldCheck, FlaskConical, Phone, Mail, MapPin, CheckCircle } from "lucide-react";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import useScrollReveal from "@/hooks/useScrollReveal";
 import heroBg from "@/assets/hero-bg.jpg";
+import heroBg2 from "@/assets/hero-bg-2.jpg";
+import heroBg3 from "@/assets/hero-bg-3.jpg";
 import cropProtection from "@/assets/crop-protection.jpg";
 import cattleFeed from "@/assets/cattle-feed.jpg";
 import fieldAdvisory from "@/assets/field-advisory.jpg";
+
+const heroImages = [heroBg, heroBg2, heroBg3];
 
 const offerings = [
   { icon: Leaf, title: "Agricultural Inputs", desc: "Pesticides, Fertilizers, Seeds" },
@@ -30,13 +36,49 @@ const services = [
 
 const HomePage = () => {
   useScrollReveal();
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(nextSlide, 5000);
+    return () => clearInterval(interval);
+  }, [nextSlide]);
 
   return (
     <main>
-      {/* Hero */}
+      {/* Hero with slideshow */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        <img src={heroBg} alt="Agricultural fields" className="absolute inset-0 w-full h-full object-cover" width={1920} height={1080} />
+        {heroImages.map((img, i) => (
+          <img
+            key={i}
+            src={img}
+            alt="Agricultural fields"
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+              i === currentSlide ? "opacity-100" : "opacity-0"
+            }`}
+            width={1920}
+            height={1080}
+          />
+        ))}
         <div className="absolute inset-0" style={{ background: "var(--hero-overlay)" }} />
+
+        {/* Slide indicators */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+          {heroImages.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentSlide(i)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                i === currentSlide ? "bg-primary-foreground scale-125" : "bg-primary-foreground/40"
+              }`}
+              aria-label={`Slide ${i + 1}`}
+            />
+          ))}
+        </div>
+
         <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-serif font-bold text-primary-foreground leading-tight hero-fade-in">
             🌱 Empowering Farmers with Smart Agricultural Solutions
@@ -148,7 +190,7 @@ const HomePage = () => {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-accent text-accent-foreground font-semibold text-lg hover:scale-105 transition-all duration-300 shadow-lg"
           >
-            <MessageCircle className="w-5 h-5" /> Chat on WhatsApp
+            <WhatsAppIcon className="w-5 h-5" /> Chat on WhatsApp
           </a>
         </div>
       </section>
