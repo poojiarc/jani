@@ -17,11 +17,22 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-md shadow-sm border-b border-border">
       <div className="container-narrow mx-auto flex items-center justify-between px-4 py-3">
-        <Link to="/" className="flex items-center gap-2">
-          <img src={logo} alt="Janicaa Agro Solutions" className="h-10 w-auto" />
-          <span className="font-serif text-lg font-bold text-primary hidden sm:inline">Janicaa Agro</span>
-        </Link>
+        <Link to="/" className="flex items-center gap-3">
+  <img
+    src={logo}
+    alt="Janicaa Agro Solutions"
+    className="h-14 w-auto object-contain"
+  />
 
+  <div className="hidden sm:flex flex-col leading-tight">
+    <span className="font-serif text-2xl font-bold text-primary">
+      Janicaa Agro
+    </span>
+    <span className="text-sm text-muted-foreground tracking-wide">
+      Solutions Pvt. Ltd.
+    </span>
+  </div>
+</Link>
         {/* Desktop nav */}
         <ul className="hidden md:flex items-center gap-1">
           {navItems.map((item) => (
