@@ -1,58 +1,89 @@
-import { Leaf, ShieldCheck, Tractor, Package, Users, TrendingUp } from "lucide-react";
+import { Leaf, ShieldCheck, Tractor, Package, Users } from "lucide-react";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
 import useScrollReveal from "@/hooks/useScrollReveal";
 import PageBanner from "@/components/PageBanner";
 import servicesBg from "@/assets/services-bg.jpg";
-import agriInputs from "@/assets/agri-inputs.jpg";
-import cattleFeed from "@/assets/cattle-feed.jpg";
+import agriInputsImg from "@/assets/serv-agri-inputs.png";
+import cattleFeedImg from "@/assets/serv-cattle-feed.png";
+import cropProtectionImg from "@/assets/serv-crop-protection.png";
 import fieldAdvisory from "@/assets/field-advisory.jpg";
-import cropProtectionImg from "@/assets/crop-protection-service.jpg";
 import farmerSupport from "@/assets/farmer-support.jpg";
-import demandSourcing from "@/assets/demand-sourcing.jpg";
 
 const services = [
   {
     icon: Leaf,
     title: "Agricultural Inputs Supply",
-    image: agriInputs,
-    desc: "We provide a wide range of high-quality agricultural products including:",
-    items: ["Pesticides", "Fungicides", "Fertilizers (including bulk supply)", "Seeds"],
+    image: agriInputsImg,
+    desc: "We provide a complete range of high-quality agricultural inputs to support farmers at every stage:",
+    items: [
+      "Pesticides: Effective solutions for controlling insects, pests, and crop damage",
+      "Fungicides: Preventive and curative products to manage fungal diseases",
+      "Bulk Fertilizers: NPK and customized nutrient solutions in large quantities",
+      "Water Soluble Fertilizers (WSF): High-efficiency nutrients for drip irrigation and foliar application",
+      "Seeds: High-yielding and certified seeds suited for local conditions",
+      "Micronutrients & Growth Promoters: Zinc, Boron, Humic Acid, Amino Acids, etc.",
+      "Quality Assurance: Only trusted brands and tested products supplied",
+    ],
   },
   {
     icon: Package,
     title: "Cattle Feed & Nutrition",
-    image: cattleFeed,
-    desc: "We supply essential cattle feed products such as:",
-    items: ["Bhusa", "Chakke", "Nutritional feed", "Feed supplements for improved livestock health"],
+    image: cattleFeedImg,
+    desc: "We support livestock farmers with reliable and nutritious feed solutions:",
+    items: [
+      "Bhusa (Dry Fodder): Clean and quality wheat straw for daily feeding",
+      "Chakke (Oil Cakes): Protein-rich supplements like groundnut cake, cottonseed cake",
+      "Balanced Cattle Feed: Scientifically formulated feed for milk yield and health",
+      "Mineral Mixtures: Essential nutrients for improved immunity and reproduction",
+      "Feed Supplements: Calcium, vitamins, and digestive enhancers",
+      "Customized Feed Guidance: Based on cattle type, age, and production goals",
+      "Consistent Supply: Regular availability in bulk quantities",
+    ],
   },
   {
     icon: Tractor,
     title: "Field Visits & Crop Advisory",
     image: fieldAdvisory,
-    desc: "Our experts visit farms to:",
-    items: ["Analyze crop conditions", "Identify pest and disease issues", "Provide practical and timely solutions"],
+    desc: "Our expert team provides on-ground support to farmers:",
+    items: [
+      "Crop Health Analysis: Regular inspection of crop condition and growth stage",
+      "Soil & Nutrient Assessment: Recommendations based on soil condition",
+      "Pest & Disease Identification: Early detection to prevent crop loss",
+      "Stage-wise Advisory: Guidance from sowing to harvesting",
+      "On-field Demonstrations: Proper usage of fertilizers and chemicals",
+      "Weather-based Recommendations: Adjusting practices based on climate conditions",
+      "Personalized Solutions: Tailored advice for each farmer's field",
+    ],
   },
   {
     icon: ShieldCheck,
     title: "Crop Protection Solutions",
     image: cropProtectionImg,
-    desc: "We recommend the right:",
-    items: ["Pesticides", "Fungicides"],
-    extra: "Based on crop type, season, and field conditions.",
+    desc: "We provide scientifically backed crop protection strategies:",
+    items: [
+      "Pesticide Recommendations: Based on pest type and infestation level",
+      "Fungicide Planning: Preventive and curative spray schedules",
+      "Herbicide Usage: Effective weed control solutions",
+      "Integrated Pest Management (IPM): Sustainable and balanced approach",
+      "Correct Dosage Guidance: Avoid overuse and ensure safety",
+      "Application Techniques: Spraying methods for maximum effectiveness",
+      "Seasonal Planning: Crop protection calendar for better yield",
+    ],
   },
   {
     icon: Users,
     title: "Farmer Follow-up & Support",
     image: farmerSupport,
-    desc: "We believe in continuous engagement:",
-    items: ["Regular follow-ups with farmers", "Monitoring crop progress", "Ongoing advisory for better yield"],
-  },
-  {
-    icon: TrendingUp,
-    title: "Demand-Based Sourcing",
-    image: demandSourcing,
-    desc: "We procure and supply products based on specific farmer requirements to ensure availability and efficiency.",
-    items: [],
+    desc: "We ensure continuous support beyond product supply:",
+    items: [
+      "Regular Follow-ups: Stay connected with farmers throughout crop cycle",
+      "Progress Monitoring: Track crop performance and improvement",
+      "Problem Resolution: Immediate support for pest, disease, or nutrient issues",
+      "Yield Improvement Guidance: Continuous advisory for better productivity",
+      "Relationship Building: Long-term trust and farmer engagement",
+      "Feedback Collection: Understanding farmer challenges and improving services",
+      "On-call Support: Quick assistance whenever needed",
+    ],
   },
 ];
 
@@ -64,50 +95,49 @@ const ServicesPage = () => {
       <PageBanner title="🌿 Our Services" subtitle="Comprehensive agricultural solutions for modern farming" bgImage={servicesBg} />
 
       <section className="section-padding">
-        <div className="container-narrow mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {services.map((service, i) => (
-              <div
-                key={i}
-                className="scroll-reveal rounded-xl overflow-hidden shadow-sm hover-card-effect border border-border bg-card"
-                style={{ transitionDelay: `${i * 100}ms` }}
-              >
-                {/* Background image with overlay */}
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                    loading="lazy"
-                    width={800}
-                    height={600}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  <div className="absolute bottom-4 left-4 flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-primary-foreground/20 backdrop-blur-sm flex items-center justify-center">
-                      <service.icon className="w-5 h-5 text-primary-foreground" />
-                    </div>
-                    <h3 className="font-serif text-xl font-semibold text-primary-foreground drop-shadow-lg">{service.title}</h3>
+        <div className="container-narrow mx-auto space-y-12">
+          {services.map((service, i) => (
+            <div
+              key={i}
+              className={`scroll-reveal grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ${
+                i % 2 === 1 ? "lg:flex-row-reverse" : ""
+              }`}
+              style={{ transitionDelay: `${i * 100}ms` }}
+            >
+              {/* Image */}
+              <div className={`relative overflow-hidden rounded-xl shadow-lg ${i % 2 === 1 ? "lg:order-2" : ""}`}>
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-72 lg:h-80 object-cover transition-transform duration-500 hover:scale-105"
+                  loading="lazy"
+                  width={800}
+                  height={600}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className="absolute bottom-4 left-4 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-primary-foreground/20 backdrop-blur-sm flex items-center justify-center">
+                    <service.icon className="w-5 h-5 text-primary-foreground" />
                   </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <p className="text-muted-foreground mb-3">{service.desc}</p>
-                  {service.items.length > 0 && (
-                    <ul className="space-y-2">
-                      {service.items.map((item, j) => (
-                        <li key={j} className="flex items-start gap-2 text-sm">
-                          <span className="text-accent mt-0.5">•</span> {item}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                  {service.extra && <p className="text-sm text-muted-foreground mt-3 italic">{service.extra}</p>}
+                  <h3 className="font-serif text-xl font-semibold text-primary-foreground drop-shadow-lg">{service.title}</h3>
                 </div>
               </div>
-            ))}
-          </div>
+
+              {/* Content */}
+              <div className={`space-y-4 ${i % 2 === 1 ? "lg:order-1" : ""}`}>
+                <h3 className="text-2xl font-serif font-bold text-foreground">{service.title}</h3>
+                <p className="text-muted-foreground">{service.desc}</p>
+                <ul className="space-y-2">
+                  {service.items.map((item, j) => (
+                    <li key={j} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <span className="text-accent mt-0.5 font-bold">•</span>
+                      <span><strong className="text-foreground">{item.split(":")[0]}:</strong>{item.includes(":") ? item.substring(item.indexOf(":") + 1) : ""}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 

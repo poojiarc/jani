@@ -16,16 +16,17 @@ const AboutPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="scroll-reveal space-y-5 text-muted-foreground leading-relaxed">
               <p>
-                Janicaa Agro Solutions Private Limited is a farmer-focused agricultural retail business committed to delivering quality inputs and practical solutions for modern farming.
+                Janicaa Agro Solutions Private Limited is a farmer-focused agricultural retail business committed to delivering quality inputs and practical solutions for modern farming through its dedicated retail outlets.
+              </p>
+              <h3 className="text-xl font-serif font-bold text-foreground">Current Agricultural Services</h3>
+              <p>
+                We provide a wide range of agricultural products including pesticides, fungicides, fertilizers, seeds, and cattle feed, along with expert guidance tailored to crop and soil conditions.
               </p>
               <p>
-                We provide a wide range of agricultural products including pesticides, fungicides, fertilizers, seeds, and cattle feed along with expert guidance tailored to crop and soil conditions.
+                Our approach goes beyond selling products. Through our retail outlets, we actively engage with farmers by offering field visits, continuous farmer follow-up, and dedicated support along with personalized crop advisory services.
               </p>
               <p>
-                Our approach goes beyond selling products. We actively engage with farmers through field visits, follow-ups, and personalized crop advisory services.
-              </p>
-              <p>
-                By understanding real-time farm challenges we recommend the right crop protection products and bulk fertilizers to improve yield and sustainability.
+                By understanding real-time farm challenges, we recommend the right crop protection products and bulk fertilizers to improve yield, efficiency, and long-term sustainability.
               </p>
             </div>
             <div className="scroll-reveal" style={{ transitionDelay: "200ms" }}>
