@@ -120,18 +120,35 @@ const HomePage = () => {
       <section className="section-padding" style={{ background: "var(--section-gradient)" }}>
         <div className="container-narrow mx-auto">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-center mb-12 scroll-reveal">Our Services</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {services.map((service, i) => (
-              <div key={i} className="scroll-reveal rounded-xl overflow-hidden bg-card shadow-sm hover-card-effect border border-border" style={{ transitionDelay: `${i * 150}ms` }}>
-                <div className="relative h-48 overflow-hidden">
-                  <img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" loading="lazy" width={800} height={600} />
-                </div>
-                <div className="p-6">
-                  <h3 className="font-serif text-xl font-semibold mb-2">{service.title}</h3>
-                  <p className="text-sm text-muted-foreground">{service.desc}</p>
-                </div>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {homeServices.map((service, i) => {
+              const Icon = service.icon;
+              return (
+                <Link
+                  key={service.slug}
+                  to={`/services/${service.slug}`}
+                  className="scroll-reveal group rounded-xl overflow-hidden bg-card shadow-sm hover-card-effect border border-border block"
+                  style={{ transitionDelay: `${i * 150}ms` }}
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" width={800} height={600} />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                    <div className="absolute bottom-3 left-3 flex items-center gap-2">
+                      <div className="w-8 h-8 rounded-lg bg-primary-foreground/20 backdrop-blur-sm flex items-center justify-center">
+                        <Icon className="w-4 h-4 text-primary-foreground" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-5">
+                    <h3 className="font-serif text-lg font-semibold mb-1 group-hover:text-primary transition-colors">{service.title}</h3>
+                    <p className="text-sm text-muted-foreground mb-2">{service.shortDesc}</p>
+                    <span className="inline-flex items-center gap-1 text-sm text-primary font-medium group-hover:gap-2 transition-all">
+                      Learn More <ArrowRight className="w-4 h-4" />
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
           <div className="text-center mt-12 scroll-reveal">
             <Link to="/services" className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-primary text-primary-foreground font-semibold shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300">
