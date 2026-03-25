@@ -6,9 +6,8 @@ import useScrollReveal from "@/hooks/useScrollReveal";
 import heroBg from "@/assets/hero-bg.jpg";
 import heroBg2 from "@/assets/hero-bg-2.jpg";
 import heroBg3 from "@/assets/hero-bg-3.jpg";
-import cropProtection from "@/assets/serv-crop-protection.png";
-import cattleFeed from "@/assets/serv-cattle-feed.png";
 import fieldAdvisory from "@/assets/field-advisory.jpg";
+import { services as allServices } from "@/data/services";
 
 const heroImages = [heroBg, heroBg2, heroBg3];
 
