@@ -27,11 +27,7 @@ const whyChoose = [
   { icon: TrendingUp, title: "Focus on Yield Improvement", emoji: "📈" },
 ];
 
-const services = [
-  { image: cropProtection, title: "Crop Protection", desc: "Effective solutions for pest and disease control." },
-  { image: cattleFeed, title: "Cattle Nutrition", desc: "Quality feed including bhusa, chakke & supplements." },
-  { image: fieldAdvisory, title: "Field Advisory", desc: "On-site visits and expert crop guidance." },
-];
+const homeServices = allServices.slice(0, 5);
 
 const HomePage = () => {
   useScrollReveal();
