@@ -44,13 +44,12 @@ const ContactPage = () => {
                     <MapPin className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold">Address</h3>
+                    <h3 className="font-semibold">Registered Address</h3>
                     <p className="text-muted-foreground">
-                      Om Chambers, 648/A<br />
-                      4th Floor<br />
-                      Binnamangala 1st Stage<br />
-                      Indiranagar<br />
-                      Bangalore - 560038
+                      Janicaa Agro Solutions Private Limited<br />
+                      Om Chambers, 648/A,<br />
+                      4th Floor, Binnamangala 1st Stage,<br />
+                      Indiranagar, Bengaluru - 560038
                     </p>
                   </div>
                 </div>
